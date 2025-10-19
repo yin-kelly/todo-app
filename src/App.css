@@ -36,3 +36,10 @@ body {
   font-size: 1.1rem;
   opacity: 0.9;
 }
+
+.todo-list-container {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}

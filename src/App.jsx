@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
 
 export default function App() {
   const [todos, setTodos] = useState([]);
@@ -15,6 +16,16 @@ export default function App() {
     setTodos([newTodo, ...todos]);
   };
 
+  const toggleTodo = (id) => {
+    setTodos(todos.map(todo =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    ));
+  };
+
+  const deleteTodo = (id) => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  };
+
   return (
     <div className="app">
       <div className="container">
@@ -25,10 +36,12 @@ export default function App() {
         
         <TodoForm onAdd={addTodo} />
         
-        {/* Temporary display to test state */}
-        <div style={{background: 'white', padding: '20px', borderRadius: '8px'}}>
-          <p>Total todos: {todos.length}</p>
-          <pre>{JSON.stringify(todos, null, 2)}</pre>
+        <div className="todo-list-container">
+          <TodoList
+            todos={todos}
+            onToggle={toggleTodo}
+            onDelete={deleteTodo}
+          />
         </div>
       </div>
     </div>
