@@ -1,11 +1,11 @@
 import TodoItem from './TodoItem';
 import './TodoList.css';
 
-export default function TodoList({ todos, onToggle, onDelete }) {
+export default function TodoList({ todos, onToggle, onDelete, onEdit }) {
   if (todos.length === 0) {
     return (
       <div className="empty-state">
-        <p>No to-dos yet. Add one above!</p>
+        <p>No todos yet. Add one above!</p>
       </div>
     );
   }
@@ -18,6 +18,7 @@ export default function TodoList({ todos, onToggle, onDelete }) {
           todo={todo}
           onToggle={onToggle}
           onDelete={onDelete}
+          onEdit={onEdit}
         />
       ))}
     </div>

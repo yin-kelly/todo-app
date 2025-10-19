@@ -84,3 +84,86 @@
   background: #fecaca;
   transform: translateY(-1px);
 }
+
+/* Edit mode styles */
+.todo-item.editing {
+  background: #fef3c7;
+  border-color: #fbbf24;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #fbbf24;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+}
+
+.edit-input:focus {
+  outline: none;
+  border-color: #f59e0b;
+}
+
+.edit-button {
+  padding: 10px 18px;
+  background: #dbeafe;
+  color: #2563eb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Quicksand', sans-serif;
+  transition: all 0.3s;
+}
+
+.edit-button:hover {
+  background: #bfdbfe;
+  transform: translateY(-1px);
+}
+
+.save-button {
+  padding: 10px 18px;
+  background: #86efac;
+  color: #166534;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Quicksand', sans-serif;
+  transition: all 0.3s;
+}
+
+.save-button:hover {
+  background: #4ade80;
+  transform: translateY(-1px);
+}
+
+.cancel-button {
+  padding: 10px 18px;
+  background: #e5e7eb;
+  color: #374151;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Quicksand', sans-serif;
+  transition: all 0.3s;
+}
+
+.cancel-button:hover {
+  background: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.todo-text {
+  cursor: pointer;
+}
+
+.todo-text:hover {
+  color: #8B5CF6;
+}

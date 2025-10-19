@@ -46,6 +46,12 @@ export default function App() {
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
+  const editTodo = (id, newText) => {
+  setTodos(todos.map(todo =>
+    todo.id === id ? { ...todo, text: newText } : todo
+  ));
+  };
+  
   const clearCompleted = () => {
     setTodos(todos.filter(todo => !todo.completed));
   };
@@ -91,10 +97,11 @@ export default function App() {
         
         <div className="todo-list-container">
           <TodoList
-            todos={filteredTodos}
-            onToggle={toggleTodo}
-            onDelete={deleteTodo}
-          />
+          todos={filteredTodos}
+          onToggle={toggleTodo}
+          onDelete={deleteTodo}
+          onEdit={editTodo}
+        />
         </div>
         
         <footer className="footer">
