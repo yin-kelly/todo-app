@@ -25,7 +25,7 @@ export default function TodoForm({ onAdd }) {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyPress={handleKeyPress}
-          placeholder="What needs to be done?"
+          placeholder="What tasks do you have?"
           className="todo-input"
         />
         <button onClick={handleAdd} className="add-button">

@@ -5,7 +5,7 @@ export default function TodoList({ todos, onToggle, onDelete }) {
   if (todos.length === 0) {
     return (
       <div className="empty-state">
-        <p>No todos yet. Add one above!</p>
+        <p>No to-dos yet. Add one above!</p>
       </div>
     );
   }
