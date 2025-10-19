@@ -2,9 +2,11 @@ import { useState } from 'react';
 import './App.css';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import FilterBar from './components/FilterBar';
 
 export default function App() {
   const [todos, setTodos] = useState([]);
+  const [filter, setFilter] = useState('all');
 
   const addTodo = (text) => {
     const newTodo = {
@@ -26,6 +28,21 @@ export default function App() {
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
+  const clearCompleted = () => {
+    setTodos(todos.filter(todo => !todo.completed));
+  };
+
+  // Filter todos
+  const filteredTodos = todos.filter(todo => {
+    if (filter === 'active') return !todo.completed;
+    if (filter === 'completed') return todo.completed;
+    return true;
+  });
+
+  // Calculate stats
+  const activeCount = todos.filter(t => !t.completed).length;
+  const completedCount = todos.filter(t => t.completed).length;
+
   return (
     <div className="app">
       <div className="container">
@@ -36,13 +53,25 @@ export default function App() {
         
         <TodoForm onAdd={addTodo} />
         
+        <FilterBar
+          filter={filter}
+          setFilter={setFilter}
+          activeCount={activeCount}
+          completedCount={completedCount}
+          onClearCompleted={clearCompleted}
+        />
+        
         <div className="todo-list-container">
           <TodoList
-            todos={todos}
+            todos={filteredTodos}
             onToggle={toggleTodo}
             onDelete={deleteTodo}
           />
         </div>
+        
+        <footer className="footer">
+          Built with React • {todos.length} total {todos.length === 1 ? 'task' : 'tasks'}
+        </footer>
       </div>
     </div>
   );
