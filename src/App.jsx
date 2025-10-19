@@ -1,4 +1,5 @@
 import './App.css';
+import TodoForm from './components/TodoForm';
 
 export default function App() {
   return (
@@ -8,6 +9,8 @@ export default function App() {
           <h1>My Todo List</h1>
           <p>Stay organized and productive</p>
         </header>
+        
+        <TodoForm />
       </div>
     </div>
   );
